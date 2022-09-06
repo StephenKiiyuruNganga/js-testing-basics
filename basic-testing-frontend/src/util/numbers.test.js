@@ -11,8 +11,11 @@ it("should transform a string number to a number of type number", () => {
 
 it("should yield NaN for non-transformable inputs", () => {
   const input = "stephen"
+  const input2 = {}
 
   const result = transformToNumber(input)
+  const result2 = transformToNumber(input2)
 
   expect(result).toBeNaN()
+  expect(result2).toBeNaN()
 })
