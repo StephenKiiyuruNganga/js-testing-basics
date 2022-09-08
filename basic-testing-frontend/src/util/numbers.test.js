@@ -29,8 +29,15 @@ describe("cleanNumbers()", () => {
     const input = ["1", "2"]
 
     const result = cleanNumbers(input)
+    const expected_result = input.map((num) => +num)
 
-    expect(result[0]).toBeTypeOf("number")
+    // expect(result[0]).toBeTypeOf("number")
+
+    // * toBe() does a shallow comparison, therefore reference type values eg [] | {} will not work
+    // expect(result).toBe(expected_result) // will be false
+
+    // * toEqual() does a deep comparison, therefore checking reference types like so will work
+    expect(result).toEqual(expected_result)
   })
 
   it("should throw an error if one of the values from the input is an empty string", () => {
